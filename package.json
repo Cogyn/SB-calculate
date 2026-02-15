@@ -1,0 +1,12 @@
+{
+  "name": "skyflip-bazaar-flipper",
+  "version": "1.0.0",
+  "description": "SkyFlip Bazaar Flipper Website - Real-time Hypixel Skyblock bazaar flip calculator",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

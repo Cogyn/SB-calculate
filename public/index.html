@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkyFlip - Bazaar & AH Flipper</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <h1 class="logo">SkyFlip</h1>
+      <span class="subtitle">Bazaar & AH Flipper</span>
+    </div>
+    <div class="header-right">
+      <span id="status-indicator" class="status-dot offline"></span>
+      <span id="status-text" class="status-text">Connecting...</span>
+    </div>
+  </header>
+
+  <!-- Tabs -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="order">Bazaar</button>
+    <button class="tab" data-tab="npc">NPC</button>
+    <button class="tab" data-tab="ah">Auction House</button>
+    <button class="tab" data-tab="ahcraft">AH Craft</button>
+    <button class="tab" data-tab="craft">Craft</button>
+    <button class="tab" data-tab="ahsearch">AH Suche</button>
+    <button class="tab" data-tab="settings">Einstellungen</button>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Search Bar + Advanced Mode Toggle -->
+    <div class="search-bar" id="search-bar">
+      <input type="text" id="search-input" placeholder="Item suchen..." autocomplete="off">
+      <button id="advanced-mode-toggle" class="advanced-toggle">Advanced: OFF</button>
+    </div>
+
+    <!-- AH Sub-Tabs (only visible when AH tab is active) -->
+    <div class="sub-tabs" id="ah-sub-tabs" style="display:none;">
+      <button class="sub-tab active" data-ah-mode="both">Alle</button>
+      <button class="sub-tab" data-ah-mode="bin">BIN</button>
+      <button class="sub-tab" data-ah-mode="auction">Auktionen</button>
+    </div>
+
+    <!-- Filter Bar (shown for flip tabs) -->
+    <div class="filter-bar" id="filter-bar">
+      <div class="filter-group" id="filter-group-tax">
+        <label>Tax:</label>
+        <button id="tax-toggle" class="tax-toggle">1.25%</button>
+      </div>
+      <div class="filter-group">
+        <label>Min Profit:</label>
+        <div class="number-input">
+          <button class="num-btn dec" data-setting="minProfit">&#9664;</button>
+          <input type="text" id="filter-minProfit" data-setting="minProfit" value="0">
+          <button class="num-btn inc" data-setting="minProfit">&#9654;</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label>Min %:</label>
+        <div class="number-input">
+          <button class="num-btn dec" data-setting="minProfitPercent">&#9664;</button>
+          <input type="text" id="filter-minProfitPercent" data-setting="minProfitPercent" value="0">
+          <button class="num-btn inc" data-setting="minProfitPercent">&#9654;</button>
+        </div>
+      </div>
+      <div class="filter-group" id="filter-group-volume">
+        <label>Min Volume:</label>
+        <div class="number-input">
+          <button class="num-btn dec" data-setting="minVolume">&#9664;</button>
+          <input type="text" id="filter-minVolume" data-setting="minVolume" value="0">
+          <button class="num-btn inc" data-setting="minVolume">&#9654;</button>
+        </div>
+      </div>
+      <div class="filter-group" id="filter-group-investment">
+        <label>Max Invest:</label>
+        <div class="number-input">
+          <button class="num-btn dec" data-setting="maxInvestment">&#9664;</button>
+          <input type="text" id="filter-maxInvestment" data-setting="maxInvestment" value="0">
+          <button class="num-btn inc" data-setting="maxInvestment">&#9654;</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label>Sort:</label>
+        <select id="filter-sort">
+          <option value="profitPerHour">Profit/hr</option>
+          <option value="profit">Profit</option>
+          <option value="profitPercent">Profit %</option>
+          <option value="sellability">Sellability</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Anzahl:</label>
+        <select id="filter-count">
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="0">Alle</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Flip Summary Banner -->
+    <div class="flip-summary" id="flip-summary" style="display:none;">
+      <div class="summary-stat">
+        <span class="summary-label">Flips</span>
+        <span class="summary-value" id="summary-count">0</span>
+      </div>
+      <div class="summary-stat">
+        <span class="summary-label">Avg. Profit</span>
+        <span class="summary-value profit-positive" id="summary-avg-profit">0</span>
+      </div>
+      <div class="summary-stat">
+        <span class="summary-label">Bester Flip</span>
+        <span class="summary-value profit-positive" id="summary-best">0</span>
+      </div>
+      <div class="summary-stat">
+        <span class="summary-label">Gesamtwert</span>
+        <span class="summary-value" id="summary-total">0</span>
+      </div>
+    </div>
+
+    <!-- Flip Table -->
+    <div class="table-container" id="flip-table-container">
+      <table class="flip-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Item</th>
+            <th>Typ</th>
+            <th>Kauf</th>
+            <th>Verkauf</th>
+            <th>Profit</th>
+            <th>%</th>
+            <th>Volume/Tag</th>
+            <th>Profit/hr</th>
+          </tr>
+        </thead>
+        <tbody id="flip-table-body">
+          <tr><td colspan="9" class="loading-msg">Lade Daten...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- AH Search Panel (hidden by default) -->
+    <div class="ah-search-panel" id="ah-search-panel" style="display:none;">
+      <div class="ah-search-controls">
+        <div class="ah-search-input-wrapper">
+          <input type="text" id="ah-search-input" placeholder="Item suchen (z.B. Hyperion, Necron)..." autocomplete="off">
+          <div class="search-suggestions" id="ah-search-suggestions"></div>
+        </div>
+        <button id="ah-search-btn" class="detail-btn detail-btn-copy">Suchen</button>
+      </div>
+      <div class="ah-search-filters">
+        <div class="filter-group">
+          <label>Raritaet:</label>
+          <select id="ah-search-tier">
+            <option value="">Alle</option>
+            <option value="COMMON">Common</option>
+            <option value="UNCOMMON">Uncommon</option>
+            <option value="RARE">Rare</option>
+            <option value="EPIC">Epic</option>
+            <option value="LEGENDARY">Legendary</option>
+            <option value="MYTHIC">Mythic</option>
+            <option value="DIVINE">Divine</option>
+            <option value="SPECIAL">Special</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Typ:</label>
+          <select id="ah-search-bin">
+            <option value="">Alle</option>
+            <option value="true">BIN</option>
+            <option value="false">Auktion</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Min Preis:</label>
+          <input type="text" id="ah-search-minPrice" class="ah-filter-input" placeholder="0">
+        </div>
+        <div class="filter-group">
+          <label>Max Preis:</label>
+          <input type="text" id="ah-search-maxPrice" class="ah-filter-input" placeholder="0">
+        </div>
+        <div class="filter-group">
+          <label>Recomb:</label>
+          <select id="ah-search-recomb">
+            <option value="">Egal</option>
+            <option value="true">Ja</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Min Stars:</label>
+          <input type="number" id="ah-search-minStars" class="ah-filter-input" min="0" max="10" placeholder="0">
+        </div>
+        <div class="filter-group">
+          <label>Enchant:</label>
+          <input type="text" id="ah-search-enchant" class="ah-filter-input" placeholder="z.B. sharpness" style="width:110px">
+        </div>
+        <div class="filter-group">
+          <label>Sortierung:</label>
+          <select id="ah-search-sort">
+            <option value="price_asc">Preis aufsteigend</option>
+            <option value="price_desc">Preis absteigend</option>
+            <option value="ending_soon">Endet bald</option>
+          </select>
+        </div>
+      </div>
+      <div class="ah-search-results" id="ah-search-results">
+        <p class="loading-msg">Suche starten...</p>
+      </div>
+      <div class="ah-search-pagination" id="ah-search-pagination"></div>
+    </div>
+
+    <!-- Settings Panel (hidden by default) -->
+    <div class="settings-panel" id="settings-panel" style="display:none;">
+      <h2>Einstellungen</h2>
+      <p class="settings-info">Filter-Einstellungen werden pro Tab gespeichert und automatisch in localStorage gesichert.</p>
+
+      <div class="settings-section">
+        <h3>Allgemein</h3>
+        <div class="setting-row">
+          <label>Tax Rate</label>
+          <div class="setting-control">
+            <button id="settings-tax-toggle" class="tax-toggle">1.25%</button>
+            <span class="setting-hint">Standard: 1.25% (BazaarTax), Premium: 1.125%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3>Benachrichtigungen</h3>
+        <div class="setting-row">
+          <label>Aktiviert</label>
+          <div class="setting-control">
+            <button id="notif-enabled" class="notif-toggle">AUS</button>
+            <span class="setting-hint">Sound + Popup bei guten BIN-Flips</span>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label>Sound</label>
+          <div class="setting-control">
+            <button id="notif-sound" class="notif-toggle">AN</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label>Min Profit</label>
+          <div class="number-input">
+            <input type="text" id="notif-minProfit" value="500K">
+          </div>
+        </div>
+        <div class="setting-row">
+          <label>Min Profit %</label>
+          <div class="number-input">
+            <input type="text" id="notif-minPercent" value="20">
+          </div>
+        </div>
+        <div class="setting-row">
+          <label>Min Sellability</label>
+          <div class="number-input">
+            <input type="text" id="notif-minSellability" value="30">
+          </div>
+          <span class="setting-hint">0-100 (Default: 30)</span>
+        </div>
+        <div class="setting-row">
+          <label>Nur mit Sales</label>
+          <div class="setting-control">
+            <button id="notif-requireSales" class="notif-toggle">AN</button>
+            <span class="setting-hint">Nur Flips mit mindestens 1 Sale/Tag</span>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label>Auto-Dismiss (Sek.)</label>
+          <div class="number-input">
+            <input type="text" id="notif-dismiss" value="10">
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3>Order Flips</h3>
+        <div class="setting-row">
+          <label>Min Profit</label>
+          <div class="number-input">
+            <button class="num-btn dec" data-cat="order" data-key="minProfit">&#9664;</button>
+            <input type="text" data-cat="order" data-key="minProfit" class="settings-input" value="50K">
+            <button class="num-btn inc" data-cat="order" data-key="minProfit">&#9654;</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label>Min Profit %</label>
+          <div class="number-input">
+            <button class="num-btn dec" data-cat="order" data-key="minProfitPercent">&#9664;</button>
+            <input type="text" data-cat="order" data-key="minProfitPercent" class="settings-input" value="3.0">
+            <button class="num-btn inc" data-cat="order" data-key="minProfitPercent">&#9654;</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label>Min Volume/Tag</label>
+          <div class="number-input">
+            <button class="num-btn dec" data-cat="order" data-key="minVolume">&#9664;</button>
+            <input type="text" data-cat="order" data-key="minVolume" class="settings-input" value="5K">
+            <button class="num-btn inc" data-cat="order" data-key="minVolume">&#9654;</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label>Max Investment</label>
+          <div class="number-input">
+            <button class="num-btn dec" data-cat="order" data-key="maxInvestment">&#9664;</button>
+            <input type="text" data-cat="order" data-key="maxInvestment" class="settings-input" value="10M">
+            <button class="num-btn inc" data-cat="order" data-key="maxInvestment">&#9654;</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3>NPC Flips</h3>
+        <div class="setting-row">
+          <label>Min Profit</label>
+          <div class="number-input">
+            <button class="num-btn dec" data-cat="npc" data-key="minProfit">&#9664;</button>
+            <input type="text" data-cat="npc" data-key="minProfit" class="settings-input" value="50K">
+            <button class="num-btn inc" data-cat="npc" data-key="minProfit">&#9654;</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label>Min Profit %</label>
+          <div class="number-input">
+            <button class="num-btn dec" data-cat="npc" data-key="minProfitPercent">&#9664;</button>
+            <input type="text" data-cat="npc" data-key="minProfitPercent" class="settings-input" value="3.0">
+            <button class="num-btn inc" data-cat="npc" data-key="minProfitPercent">&#9654;</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label>Min Volume/Tag</label>
+          <div class="number-input">
+            <button class="num-btn dec" data-cat="npc" data-key="minVolume">&#9664;</button>
+            <input type="text" data-cat="npc" data-key="minVolume" class="settings-input" value="5K">
+            <button class="num-btn inc" data-cat="npc" data-key="minVolume">&#9654;</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label>Max Investment</label>
+          <div class="number-input">
+            <button class="num-btn dec" data-cat="npc" data-key="maxInvestment">&#9664;</button>
+            <input type="text" data-cat="npc" data-key="maxInvestment" class="settings-input" value="10M">
+            <button class="num-btn inc" data-cat="npc" data-key="maxInvestment">&#9654;</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3>Auction House Flips</h3>
+        <div class="setting-row">
+          <label>Min Profit</label>
+          <div class="number-input">
+            <button class="num-btn dec" data-cat="ah" data-key="minProfit">&#9664;</button>
+            <input type="text" data-cat="ah" data-key="minProfit" class="settings-input" value="100K">
+            <button class="num-btn inc" data-cat="ah" data-key="minProfit">&#9654;</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label>Min Profit %</label>
+          <div class="number-input">
+            <button class="num-btn dec" data-cat="ah" data-key="minProfitPercent">&#9664;</button>
+            <input type="text" data-cat="ah" data-key="minProfitPercent" class="settings-input" value="10">
+            <button class="num-btn inc" data-cat="ah" data-key="minProfitPercent">&#9654;</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label>Max Investment</label>
+          <div class="number-input">
+            <button class="num-btn dec" data-cat="ah" data-key="maxInvestment">&#9664;</button>
+            <input type="text" data-cat="ah" data-key="maxInvestment" class="settings-input" value="50M">
+            <button class="num-btn inc" data-cat="ah" data-key="maxInvestment">&#9654;</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3>AH Craft Flips</h3>
+        <div class="setting-row">
+          <label>Min Profit</label>
+          <div class="number-input">
+            <button class="num-btn dec" data-cat="ahcraft" data-key="minProfit">&#9664;</button>
+            <input type="text" data-cat="ahcraft" data-key="minProfit" class="settings-input" value="50K">
+            <button class="num-btn inc" data-cat="ahcraft" data-key="minProfit">&#9654;</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label>Min Profit %</label>
+          <div class="number-input">
+            <button class="num-btn dec" data-cat="ahcraft" data-key="minProfitPercent">&#9664;</button>
+            <input type="text" data-cat="ahcraft" data-key="minProfitPercent" class="settings-input" value="5">
+            <button class="num-btn inc" data-cat="ahcraft" data-key="minProfitPercent">&#9654;</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3>Craft Flips</h3>
+        <div class="setting-row">
+          <label>Min Profit</label>
+          <div class="number-input">
+            <button class="num-btn dec" data-cat="craft" data-key="minProfit">&#9664;</button>
+            <input type="text" data-cat="craft" data-key="minProfit" class="settings-input" value="50K">
+            <button class="num-btn inc" data-cat="craft" data-key="minProfit">&#9654;</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <label>Min Profit %</label>
+          <div class="number-input">
+            <button class="num-btn dec" data-cat="craft" data-key="minProfitPercent">&#9664;</button>
+            <input type="text" data-cat="craft" data-key="minProfitPercent" class="settings-input" value="5">
+            <button class="num-btn inc" data-cat="craft" data-key="minProfitPercent">&#9654;</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-actions">
+        <button id="settings-reset" class="btn btn-danger">Alle Einstellungen zuruecksetzen</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span id="footer-update">Letzte Aktualisierung: --</span>
+    <span id="footer-items">-- Items</span>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/numberFormat.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/settingsPanel.js"></script>
+  <script src="js/notificationManager.js"></script>
+  <script src="js/flipRenderer.js"></script>
+  <script src="js/ahSearch.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

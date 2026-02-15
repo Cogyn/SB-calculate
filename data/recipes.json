@@ -1,0 +1,597 @@
+{
+  "ENCHANTED_QUARTZ": {
+    "name": "Enchanted Nether Quartz",
+    "count": 1,
+    "ingredients": {
+      "QUARTZ": 160
+    }
+  },
+  "ENCHANTED_OBSIDIAN": {
+    "name": "Enchanted Obsidian",
+    "count": 1,
+    "ingredients": {
+      "OBSIDIAN": 160
+    }
+  },
+  "ENCHANTED_GLOWSTONE": {
+    "name": "Enchanted Glowstone",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_GLOWSTONE_DUST": 160
+    }
+  },
+  "ENCHANTED_FLINT": {
+    "name": "Enchanted Flint",
+    "count": 1,
+    "ingredients": {
+      "FLINT": 160
+    }
+  },
+  "ENCHANTED_COBBLESTONE": {
+    "name": "Enchanted Cobblestone",
+    "count": 1,
+    "ingredients": {
+      "COBBLESTONE": 160
+    }
+  },
+  "ENCHANTED_RAW_BEEF": {
+    "name": "Enchanted Raw Beef",
+    "count": 1,
+    "ingredients": {
+      "RAW_BEEF": 160
+    }
+  },
+  "ENCHANTED_PORK": {
+    "name": "Enchanted Raw Porkchop",
+    "count": 1,
+    "ingredients": {
+      "PORK": 160
+    }
+  },
+  "ENCHANTED_RAW_CHICKEN": {
+    "name": "Enchanted Raw Chicken",
+    "count": 1,
+    "ingredients": {
+      "RAW_CHICKEN": 160
+    }
+  },
+  "ENCHANTED_RAW_SALMON": {
+    "name": "Enchanted Raw Salmon",
+    "count": 1,
+    "ingredients": {
+      "RAW_FISH-1": 160
+    }
+  },
+  "ENCHANTED_CLOWNFISH": {
+    "name": "Enchanted Tropical Fish",
+    "count": 1,
+    "ingredients": {
+      "RAW_FISH-2": 160
+    }
+  },
+  "ENCHANTED_PUFFERFISH": {
+    "name": "Enchanted Pufferfish",
+    "count": 1,
+    "ingredients": {
+      "RAW_FISH-3": 160
+    }
+  },
+  "ENCHANTED_RAW_FISH": {
+    "name": "Enchanted Raw Cod",
+    "count": 1,
+    "ingredients": {
+      "RAW_FISH": 160
+    }
+  },
+  "ENCHANTED_SUGAR": {
+    "name": "Enchanted Sugar",
+    "count": 1,
+    "ingredients": {
+      "SUGAR_CANE": 160
+    }
+  },
+  "ENCHANTED_SUGAR_CANE": {
+    "name": "Enchanted Sugar Cane",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_SUGAR": 160
+    }
+  },
+  "ENCHANTED_CACTUS": {
+    "name": "Enchanted Cactus",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_CACTUS_GREEN": 160
+    }
+  },
+  "ENCHANTED_CARROT": {
+    "name": "Enchanted Carrot",
+    "count": 1,
+    "ingredients": {
+      "CARROT_ITEM": 160
+    }
+  },
+  "ENCHANTED_POTATO": {
+    "name": "Enchanted Potato",
+    "count": 1,
+    "ingredients": {
+      "POTATO_ITEM": 160
+    }
+  },
+  "ENCHANTED_BAKED_POTATO": {
+    "name": "Enchanted Baked Potato",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_POTATO": 160
+    }
+  },
+  "ENCHANTED_PUMPKIN": {
+    "name": "Enchanted Pumpkin",
+    "count": 1,
+    "ingredients": {
+      "PUMPKIN": 160
+    }
+  },
+  "ENCHANTED_MELON": {
+    "name": "Enchanted Melon Slice",
+    "count": 1,
+    "ingredients": {
+      "MELON": 160
+    }
+  },
+  "ENCHANTED_COCOA": {
+    "name": "Enchanted Cocoa Beans",
+    "count": 1,
+    "ingredients": {
+      "INK_SACK-3": 160
+    }
+  },
+  "ENCHANTED_STRING": {
+    "name": "Enchanted String",
+    "count": 1,
+    "ingredients": {
+      "STRING": 160
+    }
+  },
+  "ENCHANTED_BONE": {
+    "name": "Enchanted Bone",
+    "count": 1,
+    "ingredients": {
+      "BONE": 160
+    }
+  },
+  "ENCHANTED_ROTTEN_FLESH": {
+    "name": "Enchanted Rotten Flesh",
+    "count": 1,
+    "ingredients": {
+      "ROTTEN_FLESH": 160
+    }
+  },
+  "ENCHANTED_GUNPOWDER": {
+    "name": "Enchanted Gunpowder",
+    "count": 1,
+    "ingredients": {
+      "SULPHUR": 160
+    }
+  },
+  "ENCHANTED_ENDER_PEARL": {
+    "name": "Enchanted Ender Pearl",
+    "count": 1,
+    "ingredients": {
+      "ENDER_PEARL": 20
+    }
+  },
+  "ENCHANTED_SLIME_BALL": {
+    "name": "Enchanted Slimeball",
+    "count": 1,
+    "ingredients": {
+      "SLIME_BALL": 160
+    }
+  },
+  "ENCHANTED_SLIME_BLOCK": {
+    "name": "Enchanted Slime Block",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_SLIME_BALL": 160
+    }
+  },
+  "ENCHANTED_BLAZE_ROD": {
+    "name": "Enchanted Blaze Rod",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_BLAZE_POWDER": 160
+    }
+  },
+  "ENCHANTED_BLAZE_POWDER": {
+    "name": "Enchanted Blaze Powder",
+    "count": 1,
+    "ingredients": {
+      "BLAZE_ROD": 160
+    }
+  },
+  "ENCHANTED_GHAST_TEAR": {
+    "name": "Enchanted Ghast Tear",
+    "count": 1,
+    "ingredients": {
+      "GHAST_TEAR": 5
+    }
+  },
+  "ENCHANTED_SPIDER_EYE": {
+    "name": "Enchanted Spider Eye",
+    "count": 1,
+    "ingredients": {
+      "SPIDER_EYE": 160
+    }
+  },
+  "ENCHANTED_FERMENTED_SPIDER_EYE": {
+    "name": "Enchanted Fermented Spider Eye",
+    "count": 1,
+    "ingredients": {
+      "BROWN_MUSHROOM": 64,
+      "SUGAR": 64,
+      "ENCHANTED_SPIDER_EYE": 64
+    }
+  },
+  "ENCHANTED_DIAMOND_BLOCK": {
+    "name": "Enchanted Diamond Block",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_DIAMOND": 160
+    }
+  },
+  "ENCHANTED_GOLD_BLOCK": {
+    "name": "Enchanted Gold Block",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_GOLD": 160
+    }
+  },
+  "ENCHANTED_IRON_BLOCK": {
+    "name": "Enchanted Iron Block",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_IRON": 160
+    }
+  },
+  "ENCHANTED_LAPIS_LAZULI_BLOCK": {
+    "name": "Enchanted Lapis Lazuli Block",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_LAPIS_LAZULI": 160
+    }
+  },
+  "ENCHANTED_REDSTONE_BLOCK": {
+    "name": "Enchanted Redstone Block",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_REDSTONE": 160
+    }
+  },
+  "ENCHANTED_EMERALD_BLOCK": {
+    "name": "Enchanted Emerald Block",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_EMERALD": 160
+    }
+  },
+  "ENCHANTED_COAL_BLOCK": {
+    "name": "Enchanted Coal Block",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_COAL": 160
+    }
+  },
+  "ENCHANTED_QUARTZ_BLOCK": {
+    "name": "Enchanted Quartz Block",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_QUARTZ": 160
+    }
+  },
+  "ENCHANTED_REDSTONE_LAMP": {
+    "name": "Enchanted Redstone Lamp",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_REDSTONE": 128,
+      "ENCHANTED_GLOWSTONE_DUST": 32
+    }
+  },
+  "ENCHANTED_HAY_BALE": {
+    "name": "Enchanted Hay Bale",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_WHEAT": 160
+    }
+  },
+  "ENCHANTED_NETHER_STALK": {
+    "name": "Enchanted Nether Wart",
+    "count": 1,
+    "ingredients": {
+      "NETHER_STALK": 160
+    }
+  },
+  "ENCHANTED_MUTTON": {
+    "name": "Enchanted Raw Mutton",
+    "count": 1,
+    "ingredients": {
+      "MUTTON": 160
+    }
+  },
+  "ENCHANTED_COOKED_MUTTON": {
+    "name": "Enchanted Cooked Mutton",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_MUTTON": 160
+    }
+  },
+  "COMPACTOR": {
+    "name": "Compactor",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_COBBLESTONE": 7,
+      "ENCHANTED_REDSTONE": 1
+    }
+  },
+  "SUPER_COMPACTOR_3000": {
+    "name": "Super Compactor 3000",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_COBBLESTONE": 224,
+      "COMPACTOR": 1,
+      "ENCHANTED_REDSTONE": 32
+    }
+  },
+  "BUDGET_HOPPER": {
+    "name": "Budget Hopper",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_IRON": 5,
+      "CHEST": 1
+    }
+  },
+  "GRAND_EXP_BOTTLE": {
+    "name": "Grand Experience Bottle",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_LAPIS_LAZULI": 6,
+      "GLASS_BOTTLE": 1
+    }
+  },
+  "TITANIC_EXP_BOTTLE": {
+    "name": "Titanic Experience Bottle",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_LAPIS_LAZULI_BLOCK": 6,
+      "GLASS_BOTTLE": 1
+    }
+  },
+  "ENCHANTED_EYE_OF_ENDER": {
+    "name": "Enchanted Eye of Ender",
+    "count": 1,
+    "ingredients": {
+      "BLAZE_POWDER": 64,
+      "ENCHANTED_ENDER_PEARL": 16
+    }
+  },
+  "ENCHANTED_MAGMA_CREAM": {
+    "name": "Enchanted Magma Cream",
+    "count": 1,
+    "ingredients": {
+      "MAGMA_CREAM": 160
+    }
+  },
+  "ENCHANTED_GLISTERING_MELON": {
+    "name": "Enchanted Glistering Melon Slice",
+    "count": 1,
+    "ingredients": {
+      "SPECKLED_MELON": 256
+    }
+  },
+  "ENCHANTED_SNOW_BLOCK": {
+    "name": "Enchanted Snow Block",
+    "count": 1,
+    "ingredients": {
+      "SNOW_BLOCK": 160
+    }
+  },
+  "ENCHANTED_ICE": {
+    "name": "Enchanted Ice",
+    "count": 1,
+    "ingredients": {
+      "ICE": 160
+    }
+  },
+  "ENCHANTED_PACKED_ICE": {
+    "name": "Enchanted Packed Ice",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_ICE": 160
+    }
+  },
+  "ENCHANTED_CLAY_BALL": {
+    "name": "Enchanted Clay Ball",
+    "count": 1,
+    "ingredients": {
+      "CLAY_BALL": 160
+    }
+  },
+  "ENCHANTED_SPONGE": {
+    "name": "Enchanted Sponge",
+    "count": 1,
+    "ingredients": {
+      "SPONGE": 40
+    }
+  },
+  "ENCHANTED_PRISMARINE_SHARD": {
+    "name": "Enchanted Prismarine Shard",
+    "count": 1,
+    "ingredients": {
+      "PRISMARINE_SHARD": 80
+    }
+  },
+  "ENCHANTED_PRISMARINE_CRYSTALS": {
+    "name": "Enchanted Prismarine Crystals",
+    "count": 1,
+    "ingredients": {
+      "PRISMARINE_CRYSTALS": 80
+    }
+  },
+  "ENCHANTED_INK_SACK": {
+    "name": "Enchanted Ink Sac",
+    "count": 1,
+    "ingredients": {
+      "INK_SACK": 80
+    }
+  },
+  "ENCHANTED_SEEDS": {
+    "name": "Enchanted Seeds",
+    "count": 1,
+    "ingredients": {
+      "SEEDS": 160
+    }
+  },
+  "ENCHANTED_BROWN_MUSHROOM": {
+    "name": "Enchanted Brown Mushroom",
+    "count": 1,
+    "ingredients": {
+      "BROWN_MUSHROOM": 160
+    }
+  },
+  "ENCHANTED_RED_MUSHROOM": {
+    "name": "Enchanted Red Mushroom",
+    "count": 1,
+    "ingredients": {
+      "RED_MUSHROOM": 160
+    }
+  },
+  "ENCHANTED_RABBIT_FOOT": {
+    "name": "Enchanted Rabbit Foot",
+    "count": 1,
+    "ingredients": {
+      "RABBIT_FOOT": 160
+    }
+  },
+  "ENCHANTED_RABBIT": {
+    "name": "Enchanted Raw Rabbit",
+    "count": 1,
+    "ingredients": {
+      "RABBIT": 160
+    }
+  },
+  "ENCHANTED_FEATHER": {
+    "name": "Enchanted Feather",
+    "count": 1,
+    "ingredients": {
+      "FEATHER": 160
+    }
+  },
+  "ENCHANTED_EGG": {
+    "name": "Enchanted Egg",
+    "count": 1,
+    "ingredients": {
+      "EGG": 144
+    }
+  },
+  "ENCHANTED_CAKE": {
+    "name": "Enchanted Cake",
+    "count": 1,
+    "ingredients": {
+      "MILK_BUCKET": 3,
+      "ENCHANTED_SUGAR": 2,
+      "ENCHANTED_EGG": 1,
+      "WHEAT": 3
+    }
+  },
+  "ENCHANTED_BOOKSHELF": {
+    "name": "Enchanted Bookshelf",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_OAK_LOG": 6,
+      "ENCHANTED_PAPER": 6
+    }
+  },
+  "POLISHED_PUMPKIN": {
+    "name": "Polished Pumpkin",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_PUMPKIN": 160
+    }
+  },
+  "ENCHANTED_JACK_O_LANTERN": {
+    "name": "Lantern Helmet",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_PUMPKIN": 128,
+      "TORCH": 1
+    }
+  },
+  "REVENANT_VISCERA": {
+    "name": "Revenant Viscera",
+    "count": 1,
+    "ingredients": {
+      "REVENANT_FLESH": 128,
+      "ENCHANTED_STRING": 32
+    }
+  },
+  "TARANTULA_SILK": {
+    "name": "Tarantula Silk",
+    "count": 1,
+    "ingredients": {
+      "TARANTULA_WEB": 128,
+      "ENCHANTED_FLINT": 32
+    }
+  },
+  "ENCHANTED_MITHRIL": {
+    "name": "Enchanted Mithril",
+    "count": 1,
+    "ingredients": {
+      "MITHRIL_ORE": 160
+    }
+  },
+  "ENCHANTED_TITANIUM": {
+    "name": "Enchanted Titanium",
+    "count": 1,
+    "ingredients": {
+      "TITANIUM_ORE": 160
+    }
+  },
+  "ENCHANTED_HARD_STONE": {
+    "name": "Enchanted Hard Stone",
+    "count": 1,
+    "ingredients": {
+      "HARD_STONE": 576
+    }
+  },
+  "ENCHANTED_CHARCOAL": {
+    "name": "Enchanted Charcoal",
+    "count": 1,
+    "ingredients": {
+      "COAL": 128,
+      "LOG": 32
+    }
+  },
+  "ENCHANTED_LAVA_BUCKET": {
+    "name": "Enchanted Lava Bucket",
+    "count": 1,
+    "ingredients": {
+      "ENCHANTED_IRON": 3,
+      "ENCHANTED_COAL_BLOCK": 2
+    }
+  },
+  "CATALYST": {
+    "name": "Catalyst",
+    "count": 1,
+    "ingredients": {
+      "ENDER_STONE": 8,
+      "CRYSTAL_FRAGMENT": 1
+    }
+  },
+  "HYPER_CATALYST": {
+    "name": "Hyper Catalyst",
+    "count": 8,
+    "ingredients": {
+      "CATALYST": 8,
+      "HYPER_CATALYST_UPGRADE": 1
+    }
+  }
+}
